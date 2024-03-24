@@ -32,3 +32,7 @@ To quickly bootstrap the project on your machine, follow these commands.
     ```bash
     yarn dev:watch
     ```
+
+## Environment variables
+
+The server depends on environment variables, which are loaded from a `.env` file in your root directory, and example .env file is present, showing the required variables.
