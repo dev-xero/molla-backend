@@ -8,8 +8,8 @@
     "private": false,
     "scripts": {
         "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
-        "build": "npx tsc",
-        "build-watch": "npx tsc -w",
+        "build": "yarn tsc",
+        "build-watch": "yarn tsc -w",
         "dev": "yarn build && nodemon ./build/index.js",
         "dev:watch": "nodemon ./src/index.ts"
     },
