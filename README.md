@@ -16,13 +16,13 @@ To quickly bootstrap the project on your machine, follow these commands.
 1. Clone the github repo:
    
    ```bash
-     git clone https://github.com/dev-xero/molla-backend
+   git clone https://github.com/dev-xero/molla-backend
    ```
 
  2. Install dependencies:
 
     ```bash
-      yarn install
+    yarn install
     ```
 
  3. Run the development server:
@@ -30,5 +30,5 @@ To quickly bootstrap the project on your machine, follow these commands.
     Running `yarn dev:watch` watches the typescript files for changes and restarts the server automatically, to prevent this behaviour, use `yarn dev`.
 
     ```bash
-       yarn dev:watch
+    yarn dev:watch
     ```
