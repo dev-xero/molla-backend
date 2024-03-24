@@ -9,7 +9,9 @@
     "scripts": {
         "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
         "build": "npx tsc",
-        "build-watch": "npx tsc -w"
+        "build-watch": "npx tsc -w",
+        "dev": "yarn build && nodemon ./build/index.js",
+        "dev:watch": "nodemon ./src/index.ts"
     },
     "dependencies": {
         "dotenv": "^16.4.5",
@@ -18,11 +20,15 @@
         "typescript": "^5.4.3"
     },
     "devDependencies": {
+        "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.11.30",
         "@typescript-eslint/eslint-plugin": "^7.3.1",
         "@typescript-eslint/parser": "^7.3.1",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
         "prettier": "^3.2.5",
+        "ts-node": "^10.9.2",
         "typescript-eslint": "^7.3.1"
     }
 }
