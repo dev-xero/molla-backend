@@ -24,3 +24,11 @@ To quickly bootstrap the project on your machine, follow these commands.
     ```bash
       yarn install
     ```
+
+ 3. Run the development server:
+
+    Running `yarn dev:watch` watches the typescript files for changes and restarts the server automatically, to prevent this behaviour, use `yarn dev`.
+
+    ```bash
+       yarn dev:watch
+    ```
