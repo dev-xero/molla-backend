@@ -12,5 +12,6 @@
             "~/*": ["src/*"]
         },
         "strict": true
-    }
+    },
+    "exclude": ["README.md"]
 }
