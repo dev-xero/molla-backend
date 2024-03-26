@@ -6,6 +6,7 @@ const env = {
     port: process.env.PORT || '8080',
     environment: process.env.ENVIRONMENT || 'development',
     mongodb_uri: process.env.MONGODB_URI || '',
+    google_bucket_url: process.env.GBUCKET_URL || ''
 }
 
 export default env

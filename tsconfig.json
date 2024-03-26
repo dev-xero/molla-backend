@@ -10,11 +10,13 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": "./src",
         "paths": {
+            "~/*": ["../*"],
             "@config/*": ["config/*"],
             "@database/*": ["database/*"],
             "@data/*": ["data/*"],
             "@model/*": ["model/*"],
-            "@util/*": ["util/*"]
+            "@util/*": ["util/*"],
+            "@secret/*": ["secret/*"]
         },
         "strict": true,
     },
