@@ -18,7 +18,7 @@ export async function seedDatabase(
                 return product
             }),
         )
-        logMessage(LogLevel.INFO, 'successfully mapped image urls')
+        logMessage(LogLevel.INFO, 'successfully mapped image urls.')
         // Delete any previous data and then insert
         model.deleteMany({}).then(() => {
             model

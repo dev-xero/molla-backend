@@ -26,7 +26,7 @@ application.use(helmet())
 
 application.get('/', (_, res) => {
     res.json({
-        message: "Welcome to Molla's backend API",
+        message: "Welcome to Molla's backend API.",
         success: true,
         payload: null,
     })

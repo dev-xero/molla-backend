@@ -36,7 +36,7 @@ export async function getBucketFileURL(path: string): Promise<string> {
             return url[0]
         })
         .catch((error: Error) => {
-            logMessage(LogLevel.ERROR, 'Failed to get download URL')
+            logMessage(LogLevel.ERROR, 'Failed to get download URL.')
             logMessage(LogLevel.ERROR, error.message)
             throw error
         })
