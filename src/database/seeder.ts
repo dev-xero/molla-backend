@@ -8,9 +8,10 @@ export function seedDatabase(
     callback: CallbackFunction<boolean>,
 ) {
     // Delete any previous data and then insert
-    model.deleteMany({})
-    model
-        .insertMany(seedJSON)
-        .then(() => callback(null, true))
-        .catch((error) => callback(error, false))
+    model.deleteMany({}).then(() => {
+        model
+            .insertMany(seedJSON)
+            .then(() => callback(null, true))
+            .catch((error) => callback(error, false))
+    })
 }
