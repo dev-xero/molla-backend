@@ -10,12 +10,13 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": "./src",
         "paths": {
-            "@database/*": ["database/*"],
             "@config/*": ["config/*"],
-            "@util/*": ["util/*"],
-            "@model/*": ["model/*"]
+            "@database/*": ["database/*"],
+            "@data/*": ["data/*"],
+            "@model/*": ["model/*"],
+            "@util/*": ["util/*"]
         },
-        "strict": true
+        "strict": true,
     },
     "exclude": ["README.md"]
 }

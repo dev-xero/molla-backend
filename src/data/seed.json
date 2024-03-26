@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Classic White T-Shirt",
+        "description": "Introducing our Classic White T-Shirt, crafted from premium cotton for ultimate comfort and durability. With its timeless design, this tee effortlessly complements any style, making it a wardrobe essential. Upgrade your basics with our Classic White T-Shirt today!",
+        "image": "url_1",
+        "rating": 5,
+        "category": "T-Shirts",
+        "price": 19.99,
+        "color": "White"
+    },
+
+    {
+        "name": "Classic White",
+        "description": "Timeless elegance in every detail. Versatile, sophisticated, and effortlessly stylish. Elevate your look with our classic white essentials.",
+        "image": "url_2",
+        "rating": 4,
+        "category": "T-Shirts",
+        "price": 20.0,
+        "color": "White"
+    },
+
+    {
+        "name": "Slim Fit Jeans",
+        "description": "Discover our Slim Fit Jeans: sleek, comfortable, and crafted from premium denim for enduring style and all-day comfort.",
+        "image": "url_3",
+        "rating": 5,
+        "category": "Jeans",
+        "price": 39.99,
+        "color": "Blue"
+    },
+    {
+        "name": "Casual Sneakers",
+        "description": "Introducing our Casual Sneakers: the perfect blend of comfort and style. Crafted for everyday wear, these sneakers elevate your casual look.",
+        "image": "url_4",
+        "rating": 3,
+        "category": "Footwear",
+        "price": 20.55,
+        "color": "White"
+    },
+
+    {
+        "name": "Leather Jacket",
+        "description": "Introducing our Leather Jacket: timeless, rugged, and effortlessly cool. Crafted from premium leather for enduring style and unbeatable durability. Elevate your wardrobe.",
+        "image": "url_5",
+        "rating": 4,
+        "category": "Jackets",
+        "price": 79.99,
+        "color": "Brown"
+    }
+]

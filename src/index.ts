@@ -4,8 +4,11 @@ import cors, { CorsOptions } from 'cors'
 import { exit } from 'process'
 
 import env from '@config/env'
-import { LogLevels, logMessage } from '@util/logger'
+import { LogLevel, logMessage } from '@util/logger'
 import { syncWithURI } from '@database/connection'
+import { seedDatabase } from '@database/seeder'
+import productModel from '@model/product'
+import { log } from 'console'
 
 const port = env.port
 const environment = env.environment
@@ -41,17 +44,19 @@ application.use((_, res) => {
 // Connect to the database and listen for requests
 syncWithURI(mongoDBUri).then((conn) => {
     if (!conn) {
-        logMessage(
-            LogLevels.ERROR,
-            'failed to establish a database connection.',
-        )
+        logMessage(LogLevel.ERROR, 'failed to establish a database connection.')
         exit(1)
     }
 
-    logMessage(
-        LogLevels.INFO,
-        'successfully established a database connection.',
-    )
+    logMessage(LogLevel.INFO, 'successfully established a database connection.')
+
+    seedDatabase(productModel, (err, success) => {
+        if (err || !success) {
+            logMessage(LogLevel.ERROR, 'could not seed database.')
+            exit(1)
+        }
+        logMessage(LogLevel.SUCCESS, 'successfully seeded the database.')
+    })
 
     application.listen(port, () => {
         const address =
@@ -59,7 +64,7 @@ syncWithURI(mongoDBUri).then((conn) => {
                 ? `${process.env.ADDRESS}:${port}`
                 : `${process.env.ADDRESS}`
 
-        logMessage(LogLevels.INFO, `application listening on port:${port}`)
-        logMessage(LogLevels.INFO, `api live at - ${address}`)
+        logMessage(LogLevel.INFO, `application listening on port:${port}`)
+        logMessage(LogLevel.INFO, `api live at - ${address}`)
     })
 })
