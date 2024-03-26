@@ -8,7 +8,6 @@ import { LogLevel, logMessage } from '@util/logger'
 import { syncWithURI } from '@database/connection'
 import { seedDatabase } from '@database/seeder'
 import productModel from '@model/product'
-import { log } from 'console'
 
 const port = env.port
 const environment = env.environment
