@@ -11,7 +11,8 @@
         "baseUrl": "./src",
         "paths": {
             "@database/*": ["database/*"],
-            "@config/*": ["config/*"]
+            "@config/*": ["config/*"],
+            "@util/*": ["util/*"]
         },
         "strict": true
     },

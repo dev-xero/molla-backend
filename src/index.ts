@@ -6,6 +6,7 @@ import cors, { CorsOptions } from 'cors'
 import { exit } from 'process'
 
 import env from '@config/env'
+import { LogLevels, logMessage } from '@util/logger'
 import { syncWithURI } from '@database/connection'
 
 const port = env.port
@@ -42,18 +43,25 @@ application.use((_, res) => {
 // Connect to the database and listen for requests
 syncWithURI(mongoDBUri).then((conn) => {
     if (!conn) {
-        console.log('[ERR]: failed to establish a database connection.')
+        logMessage(
+            LogLevels.ERROR,
+            'failed to establish a database connection.',
+        )
         exit(1)
     }
 
-    console.log('[LOG]: successfully established a database connection.')
+    logMessage(
+        LogLevels.INFO,
+        'successfully established a database connection.',
+    )
 
     application.listen(port, () => {
         const address =
             environment == 'development'
                 ? `${process.env.ADDRESS}:${port}`
                 : `${process.env.ADDRESS}`
-        console.log('[LOG]: application listening on port', port)
-        console.log('[LOG]: api live at -', address)
+
+        logMessage(LogLevels.INFO, `application listening on port:${port}`)
+        logMessage(LogLevels.INFO, `api live at - ${address}`)
     })
 })
