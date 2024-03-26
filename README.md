@@ -8,6 +8,8 @@ Application stack and technologies overview.
 
 1. Language: NodeJS (Typescript)
 2. Database: MongoDB
+3. BLOB Storage: Amazon S3 Bucket
+4. Cloud Hosting: Render
 
 ## Setup
 
@@ -22,6 +24,7 @@ To quickly bootstrap the project on your machine, follow these commands.
  2. Install dependencies:
 
     ```bash
+    cd molla-backend
     yarn install
     ```
 
