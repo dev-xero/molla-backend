@@ -5,19 +5,27 @@
     "main": "index.js",
     "author": "dev-xero, thomson",
     "license": "BSD-3-Clause",
+    "type": "module",
     "private": false,
     "scripts": {
         "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
         "build": "npx tsc",
         "build-watch": "npx tsc -w",
         "dev": "yarn build && nodemon ./build/index.js",
-        "dev:watch": "nodemon ./src/index.ts"
+        "dev:watch": "nodemon"
+    },
+    "_moduleAliases": {
+        "@config": "build/config",
+        "@database": "build/database"
     },
     "dependencies": {
         "cors": "^2.8.5",
         "dotenv": "^16.4.5",
         "express": "^4.19.1",
-        "nodemon": "^3.1.0"
+        "helmet": "^7.1.0",
+        "module-alias": "^2.2.3",
+        "mongodb": "^6.5.0",
+        "mongoose": "^8.2.3"
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",
@@ -28,8 +36,8 @@
         "@typescript-eslint/parser": "^7.3.1",
         "eslint": "^8.57.0",
         "eslint-config-prettier": "^9.1.0",
+        "nodemon": "^3.1.0",
         "prettier": "^3.2.5",
-        "ts-node": "^10.9.2",
         "typescript": "^5.4.3",
         "typescript-eslint": "^7.3.1"
     }

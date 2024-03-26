@@ -1,15 +1,17 @@
 {
     "compilerOptions": {
         "target": "es2016",
-        "module": "NodeNext",
         "rootDir": "./src",
+        "module": "ESNext",
         "outDir": "./build",
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "moduleResolution": "NodeNext",
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "paths": {
-            "~/*": ["src/*"]
+            "@database/*": ["database/*"],
+            "@config/*": ["config/*"]
         },
         "strict": true
     },

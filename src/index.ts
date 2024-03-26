@@ -1,10 +1,16 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import cors, { CorsOptions } from 'cors'
+import 'module-alias/register'
 
-dotenv.config() // Load environment variables into the process
-const port = process.env.PORT || '8080'
-const environment = process.env.ENVIRONMENT || 'development'
+import express from 'express'
+import helmet from 'helmet'
+import cors, { CorsOptions } from 'cors'
+import { exit } from 'process'
+
+import env from '@config/env'
+import { syncWithURI } from '@database/connection'
+
+const port = env.port
+const environment = env.environment
+const mongoDBUri = env.mongodb_uri
 
 const application = express()
 const corsOptions: CorsOptions = {
@@ -13,8 +19,9 @@ const corsOptions: CorsOptions = {
     optionsSuccessStatus: 200,
 }
 
-// Enable cors
+// Enable cors, set secure headers
 application.use(cors(corsOptions))
+application.use(helmet())
 
 application.get('/', (_, res) => {
     res.json({
@@ -32,11 +39,21 @@ application.use((_, res) => {
     })
 })
 
-application.listen(port, () => {
-    const address =
-        environment == 'development'
-            ? `${process.env.ADDRESS}:${port}`
-            : `${process.env.ADDRESS}`
-    console.log('[LOG]: application listening on port', port)
-    console.log('[LOG]: api live at -', address)
+// Connect to the database and listen for requests
+syncWithURI(mongoDBUri).then((conn) => {
+    if (!conn) {
+        console.log('[ERR]: failed to establish a database connection.')
+        exit(1)
+    }
+
+    console.log('[LOG]: successfully established a database connection.')
+
+    application.listen(port, () => {
+        const address =
+            environment == 'development'
+                ? `${process.env.ADDRESS}:${port}`
+                : `${process.env.ADDRESS}`
+        console.log('[LOG]: application listening on port', port)
+        console.log('[LOG]: api live at -', address)
+    })
 })
