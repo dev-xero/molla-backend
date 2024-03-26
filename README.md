@@ -8,7 +8,7 @@ Application stack and technologies overview.
 
 1. Language: NodeJS (Typescript)
 2. Database: MongoDB
-3. BLOB Storage: Amazon S3 Bucket
+3. BLOB Storage: Google Cloud Storage
 4. Cloud Hosting: Render
 
 ## Setup
