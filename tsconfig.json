@@ -12,7 +12,8 @@
         "paths": {
             "@database/*": ["database/*"],
             "@config/*": ["config/*"],
-            "@util/*": ["util/*"]
+            "@util/*": ["util/*"],
+            "@model/*": ["model/*"]
         },
         "strict": true
     },
