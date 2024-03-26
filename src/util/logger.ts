@@ -1,4 +1,4 @@
-import colors from 'colors/safe'
+import colors from 'colors/safe.js'  // Node + Typescript still don't get this right.
 
 export enum LogLevels {
     INFO = 'INFO',

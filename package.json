@@ -9,14 +9,10 @@
     "private": false,
     "scripts": {
         "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
-        "build": "npx tsc",
-        "build-watch": "npx tsc -w",
+        "build": "yarn tsc",
+        "build:run": "yarn tsc && node --experimental-loader tsc-module-loader build/index.js",
         "dev": "yarn build && nodemon ./build/index.js",
         "dev:watch": "nodemon"
-    },
-    "_moduleAliases": {
-        "@config": "build/config",
-        "@database": "build/database"
     },
     "dependencies": {
         "colors": "^1.4.0",
@@ -40,6 +36,8 @@
         "eslint-config-prettier": "^9.1.0",
         "nodemon": "^3.1.0",
         "prettier": "^3.2.5",
+        "tsc-alias": "^1.8.8",
+        "tsc-module-loader": "^0.0.1",
         "tsx": "^4.7.1",
         "typescript": "^5.4.3",
         "typescript-eslint": "^7.3.1"

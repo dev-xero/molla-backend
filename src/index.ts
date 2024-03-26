@@ -1,5 +1,3 @@
-import 'module-alias/register'
-
 import express from 'express'
 import helmet from 'helmet'
 import cors, { CorsOptions } from 'cors'
