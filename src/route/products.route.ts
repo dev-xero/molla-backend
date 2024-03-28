@@ -1,18 +1,9 @@
+import { products } from '@controller/controllers'
 import express from 'express'
-import { sendJsonResponse } from '@util/response'
 
 const productRouter = express.Router()
 
-productRouter.get("/", (_, res) => {
-    sendJsonResponse(
-        {
-            message: "GET all products.",
-            code: 200,
-            payload: null,
-        },
-        res,
-    )
-    return
-})
+productRouter.get('/', products.all)
+productRouter.post('/upload', products.upload)
 
 export { productRouter }

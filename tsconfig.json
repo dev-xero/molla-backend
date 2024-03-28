@@ -12,13 +12,14 @@
         "paths": {
             "~/*": ["../*"],
             "@config/*": ["config/*"],
+            "@controller/*": ["controller/*"],
             "@database/*": ["database/*"],
             "@data/*": ["data/*"],
             "@model/*": ["model/*"],
-            "@util/*": ["util/*"],
-            "@secret/*": ["secret/*"]
+            "@secret/*": ["secret/*"],
+            "@util/*": ["util/*"]
         },
-        "strict": true,
+        "strict": true
     },
     "exclude": ["README.md"]
 }

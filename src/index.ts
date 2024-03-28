@@ -22,6 +22,10 @@ const corsOptions: CorsOptions = {
     optionsSuccessStatus: 200,
 }
 
+// Enable JSON middleware and url encoding
+application.use(express.json())
+application.use(express.urlencoded({ extended: true }))
+
 // Enable cors, set secure headers
 application.use(cors(corsOptions))
 application.use(helmet())
