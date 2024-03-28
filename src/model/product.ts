@@ -1,6 +1,8 @@
+import { ObjectId } from 'mongodb'
 import mongoose, { Schema } from 'mongoose'
 
 const productSchema = new Schema({
+    id: ObjectId,
     title: String,
     description: String,
     image: String,

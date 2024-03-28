@@ -6,7 +6,7 @@ export enum LogLevel {
     ERROR = 'ERR',
 }
 
-export function logMessage(level: LogLevel, msg: string) {
+export function logMessage(level: LogLevel, msg: any) {
     let coloredTag
     switch (level) {
         case LogLevel.INFO:
