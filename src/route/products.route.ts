@@ -1,14 +1,18 @@
 import express from 'express'
+import { sendJsonResponse } from '@util/response'
 
 const productRouter = express.Router()
 
 productRouter.get("/", (_, res) => {
-    res.status(200).json({
-        message: "GET all products",
-        success: true,
-        code: 200,
-        payload: null
-    })
+    sendJsonResponse(
+        {
+            message: "GET all products.",
+            code: 200,
+            payload: null,
+        },
+        res,
+    )
+    return
 })
 
 export { productRouter }

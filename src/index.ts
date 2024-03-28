@@ -4,11 +4,12 @@ import cors, { CorsOptions } from 'cors'
 import { exit } from 'process'
 
 import env from '@config/env'
+import productModel from '@model/product'
 import { LogLevel, logMessage } from '@util/logger'
 import { syncWithURI } from '@database/connection'
 import { seedDatabase } from '@database/seeder'
-import productModel from '@model/product'
 import { productRouter } from 'route/products.route'
+import { sendJsonResponse } from '@util/response'
 
 const port = env.port
 const environment = env.environment
@@ -29,21 +30,27 @@ application.use(helmet())
 application.use('/products', productRouter)
 
 application.get('/', (_, res) => {
-    res.status(200).json({
-        message: "Welcome to Molla's backend API.",
-        success: true,
-        code: 200,
-        payload: null,
-    })
+    sendJsonResponse(
+        {
+            message: "Welcome to Molla's backend API.",
+            code: 200,
+            payload: null,
+        },
+        res,
+    )
+    return
 })
 
-application.all('*', (_, res) => {
-    res.status(404).json({
-        message: 'Undefined endpoint accessed.',
-        success: false,
-        code: 404,
-        payload: null,
-    })
+application.use((_, res) => {
+    sendJsonResponse(
+        {
+            message: 'Undefined endpoint accessed.',
+            code: 404,
+            payload: null,
+        },
+        res,
+    )
+    return
 })
 
 // Connect to the database and listen for requests
