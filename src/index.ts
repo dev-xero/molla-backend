@@ -8,6 +8,7 @@ import { LogLevel, logMessage } from '@util/logger'
 import { syncWithURI } from '@database/connection'
 import { seedDatabase } from '@database/seeder'
 import productModel from '@model/product'
+import { productRouter } from 'route/products.route'
 
 const port = env.port
 const environment = env.environment
@@ -24,18 +25,23 @@ const corsOptions: CorsOptions = {
 application.use(cors(corsOptions))
 application.use(helmet())
 
+// Register routers
+application.use('/products', productRouter)
+
 application.get('/', (_, res) => {
-    res.json({
+    res.status(200).json({
         message: "Welcome to Molla's backend API.",
         success: true,
+        code: 200,
         payload: null,
     })
 })
 
-application.use((_, res) => {
-    res.json({
+application.all('*', (_, res) => {
+    res.status(404).json({
         message: 'Undefined endpoint accessed.',
         success: false,
+        code: 404,
         payload: null,
     })
 })
