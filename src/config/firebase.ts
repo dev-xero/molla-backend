@@ -4,7 +4,7 @@ import { LogLevel, logMessage } from '@util/logger'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
-import '@secret/service-account-key.json' assert { type: 'json' } // include with tsc build
+import '../secret/service-account-key.json' assert { type: 'json' } // include with tsc build
 
 const __filename = fileURLToPath(import.meta.url)
 let serviceAccount = join(
