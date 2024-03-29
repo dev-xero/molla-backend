@@ -11,6 +11,14 @@ Application stack and technologies overview.
 3. BLOB Storage: Google Cloud Storage
 4. Cloud Hosting: Render
 
+## Endpoints
+
+The set of defined endpoints the API listens for.
+
+1. GET `/`
+2. GET `/products`
+3. GET `/product/single?id=someID`
+
 ## Setup
 
 To quickly bootstrap the project on your machine, follow these commands.
@@ -39,3 +47,7 @@ To quickly bootstrap the project on your machine, follow these commands.
 ## Environment variables
 
 The server depends on environment variables, which are loaded from a `.env` file in your root directory, and example .env file is present, showing the required variables.
+
+## Google Service Key
+
+You can get the Google service key from the Cloud Console and save it to the root directory as `key.json`. Without this step the server will crash when attempting to connect to the bucket store.
