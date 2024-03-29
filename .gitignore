@@ -2,4 +2,4 @@
 /build
 .eslintcache
 .env
-/secret/key.json
+key.json
