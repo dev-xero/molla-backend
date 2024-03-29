@@ -1,20 +1,9 @@
 import admin from 'firebase-admin'
 import env from './env'
 import { LogLevel, logMessage } from '@util/logger'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
-
-import '../secret/service-account-key.json' assert { type: 'json' } // include with tsc build
-
-const __filename = fileURLToPath(import.meta.url)
-let serviceAccount = join(
-    dirname(dirname(__filename)),
-    'secret',
-    'service-account-key.json',
-)
 
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+    credential: admin.credential.cert('config/service-account-key.json'),
     storageBucket: env.google_bucket_url,
 })
 

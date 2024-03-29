@@ -12,7 +12,8 @@
         "build": "yarn tsc",
         "build:run": "yarn tsc && node --experimental-loader tsc-module-loader build/index.js",
         "dev": "yarn build && nodemon ./build/index.js",
-        "dev:watch": "nodemon"
+        "dev:watch": "nodemon",
+        "start": "node ./build/index.js"
     },
     "dependencies": {
         "colors": "^1.4.0",
