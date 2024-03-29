@@ -6,30 +6,41 @@
         <title>Molla: Backend</title>
     </head>
     <body>
-        <h2 id="message" style="font-family: sans-serif; text-align: center">Awaiting response from server</h2p>
+        <h2 id="message" style="font-family: sans-serif; text-align: center">
+            Awaiting response from server
+        </h2>
     </body>
     <script>
-        async function ping() {
+        async function ping(endpoint) {
             try {
-                const res = await fetch('http://localhost:8080');
+                const res = await fetch(endpoint)
                 if (!res.ok) {
-                    throw new Error("Failed to access endpoint.");
+                    throw new Error('Failed to access endpoint.')
                 }
-                const data = await res.json();
-                console.log(data);
+                const data = await res.json()
+                console.log(data)
 
-                return data;
+                return data
             } catch (error) {
-                console.error(error);
-                    return null;
+                console.error(error)
+                return null
             }
         }
 
-        ping().then((data) => {
+        // Ping the local server
+        ping('http://localhost:8080').then((data) => {
             setTimeout(() => {
-                const messageElement = document.getElementById("message");
-                messageElement.textContent = data?.message ?? "No data received.";
-            }, 1000);
+                const messageElement = document.getElementById('message')
+                messageElement.textContent =
+                    data?.message ?? 'No data received.'
+            }, 1000)
+        })
+
+        // Ping the remote server
+        ping('https://molla-backend.onrender.com/products').then((data) => {
+            setTimeout(() => {
+                console.log(data)
+            }, 1500)
         })
     </script>
 </html>

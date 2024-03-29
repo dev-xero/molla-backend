@@ -17,7 +17,11 @@ const mongoDBUri = env.mongodb_uri
 
 const application = express()
 const corsOptions: CorsOptions = {
-    origin: ['http://localhost:*', 'https://molla-frontend.vercel.app/'],
+    origin: [
+        'http://localhost:3456',
+        'http://localhost:3000',
+        'https://molla-frontend.vercel.app/',
+    ],
     credentials: true,
     optionsSuccessStatus: 200,
 }
