@@ -19,6 +19,7 @@ const application = express()
 const corsOptions: CorsOptions = {
     origin: [
         'http://localhost:3456',
+        'http://localhost:5173',
         'http://localhost:3000',
         'https://molla-frontend.vercel.app/',
     ],
