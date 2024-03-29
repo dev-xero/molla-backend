@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-COPY secret/key.json /usr/src/app/key.json
+COPY key.json /usr/src/app/key.json
 
 RUN yarn install
 
