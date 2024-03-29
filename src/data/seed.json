@@ -1,51 +1,145 @@
 [
     {
-        "name": "Classic White T-Shirt",
-        "description": "Introducing our Classic White T-Shirt, crafted from premium cotton for ultimate comfort and durability. With its timeless design, this tee effortlessly complements any style, making it a wardrobe essential. Upgrade your basics with our Classic White T-Shirt today!",
-        "image": "16.jpg",
+        "title": "Brown Shoes",
+        "description": "Classic brown shoes: versatile style for any occasion, timeless elegance.",
+        "image": "1.png",
+        "category": "Shoes",
+        "color": "Brown",
         "rating": 5,
-        "category": "T-Shirts",
         "price": 19.99,
-        "color": "White"
+        "stock": 20,
+        "reviews": 32
     },
-
     {
-        "name": "Classic White",
-        "description": "Timeless elegance in every detail. Versatile, sophisticated, and effortlessly stylish. Elevate your look with our classic white essentials.",
-        "image": "17.jpg",
+        "title": "Sweat Shirt",
+        "description": "Cozy sweatshirt, soft, warm, perfect for casual comfort and relaxation.",
+        "image": "2.png",
+        "category": "Shirts",
+        "color": "Brown",
         "rating": 4,
-        "category": "T-Shirts",
-        "price": 20.0,
-        "color": "White"
+        "price": 12.39,
+        "stock": 7,
+        "reviews": 11
     },
-
     {
-        "name": "Slim Fit Jeans",
-        "description": "Discover our Slim Fit Jeans: sleek, comfortable, and crafted from premium denim for enduring style and all-day comfort.",
-        "image": "5.jpg",
-        "rating": 5,
+        "title": "Black Jeans",
+        "description": "Sleek, versatile, essential for any wardrobe, effortless style.",
+        "image": "3.png",
         "category": "Jeans",
-        "price": 39.99,
-        "color": "Grey"
-    },
-
-    {
-        "name": "Casual Sneakers",
-        "description": "Introducing our Casual Sneakers: the perfect blend of comfort and style. Crafted for everyday wear, these sneakers elevate your casual look.",
-        "image": "18.jpg",
-        "rating": 3,
-        "category": "Footwear",
-        "price": 20.55,
-        "color": "Purple"
-    },
-
-    {
-        "name": "Leather Jacket",
-        "description": "Introducing our Leather Jacket: timeless, rugged, and effortlessly cool. Crafted from premium leather for enduring style and unbeatable durability. Elevate your wardrobe.",
-        "image": "7.jpg",
+        "color": "Black",
         "rating": 4,
+        "price": 18.89,
+        "stock": 33,
+        "reviews": 42
+    },
+    {
+        "title": "Brown Leather Jacket",
+        "description": "Rugged yet refined, timeless staple for cool confidence.",
+        "image": "4.png",
         "category": "Jackets",
-        "price": 79.99,
-        "color": "Brown"
+        "color": "Brown",
+        "rating": 5,
+        "price": 28.90,
+        "stock": 20,
+        "reviews": 30
+    },
+    {
+        "title": "Yellow Shirt",
+        "description": "Vibrant hue, adds sunshine to any outfit, cheerful flair.",
+        "image": "5.png",
+        "category": "Shirts",
+        "color": "Yellow",
+        "rating": 4,
+        "price": 18.99,
+        "stock": 29,
+        "reviews": 11
+    },
+    {
+        "title": "Stripped Pants",
+        "description": "Edgy twist on classic denim, stand out with style.",
+        "image": "6.png",
+        "category": "Pants",
+        "color": "Black",
+        "rating": 5,
+        "price": 29.99,
+        "stock": 48,
+        "reviews": 102
+    },
+    {
+        "title": "Brown Sandals",
+        "description": "Comfy, versatile, perfect for sunny adventures, laid-back elegance.",
+        "image": "7.png",
+        "category": "Sandals",
+        "color": "Brown",
+        "rating": 3,
+        "price": 13.59,
+        "stock": 22,
+        "reviews": 10
+    },
+    {
+        "title": "Brown Slippers",
+        "description": "Cozy comfort, plush warmth for relaxing moments at home.",
+        "image": "8.png",
+        "category": "Slippers",
+        "color": "Brown",
+        "rating": 4,
+        "price": 9.99,
+        "stock": 11,
+        "reviews": 32
+    },
+    {
+        "title": "Nike Kicks",
+        "description": "Iconic design, ultimate performance, step up your game.",
+        "image": "9.png",
+        "category": "Shoes",
+        "color": "Green",
+        "rating": 5,
+        "price": 49.99,
+        "stock": 38,
+        "reviews": 75
+    },
+    {
+        "title": "White Round Neck",
+        "description": "Timeless simplicity, essential staple for effortless style.",
+        "image": "10.png",
+        "category": "Shirts",
+        "color": "White",
+        "rating": 5,
+        "price": 29.99,
+        "stock": 12,
+        "reviews": 30
+    },
+    {
+        "title": "White Shirt",
+        "description": "Crisp, versatile, classic staple for every wardrobe essential.",
+        "image": "11.png",
+        "category": "Shirts",
+        "color": "White",
+        "rating": 4,
+        "price": 10.99,
+        "stock": 41,
+        "reviews": 23
+    },
+    {
+        "title": "Blue Jeans",
+        "description": "Slick jeans, the epitome of casual chic style.",
+        "image": "12.png",
+        "category": "Jeans",
+        "color": "Blue",
+        "rating": 4,
+        "price": 24.49,
+        "stock": 11,
+        "reviews": 10
+    },
+    {
+        "title": "Black Leather Jacket",
+        "description": "Sleek, rebellious, timeless cool, a wardrobe essential.",
+        "image": "13.png",
+        "category": "Jackets",
+        "color": "Black",
+        "rating": 5,
+        "price": 49.99,
+        "stock": 27,
+        "reviews": 31
     }
 ]
