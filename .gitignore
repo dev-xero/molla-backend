@@ -2,4 +2,5 @@
 /build
 .eslintcache
 .env
+.env.production
 key.json
