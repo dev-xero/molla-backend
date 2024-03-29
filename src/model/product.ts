@@ -11,7 +11,7 @@ const productSchema = new Schema({
     rating: Number,
     price: Number,
     stock: Number,
-    reviews: Number
+    reviews: Number,
 })
 
 const productModel = mongoose.model('Product', productSchema)
