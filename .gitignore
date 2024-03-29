@@ -2,4 +2,4 @@
 /build
 .eslintcache
 .env
-/src/secret/service-account-key.json
+/src/secret/key.json

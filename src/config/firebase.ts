@@ -3,7 +3,7 @@ import env from './env'
 import { LogLevel, logMessage } from '@util/logger'
 
 admin.initializeApp({
-    credential: admin.credential.cert('config/service-account-key.json'),
+    credential: admin.credential.cert('/key.json'),
     storageBucket: env.google_bucket_url,
 })
 
