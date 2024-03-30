@@ -4,7 +4,8 @@ import mongoose, { Schema } from 'mongoose'
 const productSchema = new Schema({
     id: ObjectId,
     title: String,
-    description: String,
+    short_desc: String,
+    long_desc: String,
     image: String,
     category: String,
     color: String,
