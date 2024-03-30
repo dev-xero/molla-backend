@@ -43,7 +43,7 @@
         "category": "Jackets",
         "color": "Brown",
         "rating": 5,
-        "price": 28.9,
+        "price": 28.98,
         "stock": 20,
         "reviews": 30
     },
@@ -91,7 +91,7 @@
         "category": "Slippers",
         "color": "Brown",
         "rating": 4,
-        "price": 9.99,
+        "price": 10.99,
         "stock": 11,
         "reviews": 32
     },
