@@ -1,7 +1,8 @@
 [
     {
         "title": "Brown Shoes",
-        "description": "Classic brown shoes: versatile style for any occasion, timeless elegance.",
+        "short_desc": "Versatile style for any occasion, timeless elegance.",
+        "long_desc": "Step into sophistication with our classic brown shoes, crafted for enduring style and versatility. Whether it's a formal affair or casual outing, these shoes exude timeless elegance, elevating any ensemble with effortless charm. Embrace the perfect balance of tradition and modernity in every step you take.",
         "image": "1.png",
         "category": "Shoes",
         "color": "Brown",
@@ -12,7 +13,8 @@
     },
     {
         "title": "Sweat Shirt",
-        "description": "Cozy sweatshirt, soft, warm, perfect for casual comfort and relaxation.",
+        "short_desc": "Cozy sweatshirt, soft, warm, perfect for casual comfort and relaxation.",
+        "long_desc": "Indulge in cozy comfort with our irresistibly soft sweatshirt, designed to wrap you in warmth and relaxation. Whether lounging at home or out for a leisurely stroll, this sweatshirt promises the perfect blend of comfort and style for any occasion.",
         "image": "2.png",
         "category": "Shirts",
         "color": "Brown",
@@ -23,7 +25,8 @@
     },
     {
         "title": "Black Jeans",
-        "description": "Sleek, versatile, essential for any wardrobe, effortless style.",
+        "short_desc": "Sleek, versatile, essential for any wardrobe, effortless style.",
+        "long_desc": "Introducing our sleek and versatile essential, a must-have for any wardrobe. Effortlessly elevate your style with this timeless piece that seamlessly transitions from day to night, ensuring you always look effortlessly chic.",
         "image": "3.png",
         "category": "Jeans",
         "color": "Black",
@@ -34,18 +37,20 @@
     },
     {
         "title": "Brown Leather Jacket",
-        "description": "Rugged yet refined, timeless staple for cool confidence.",
+        "short_desc": "Rugged yet refined, timeless staple for cool confidence.",
+        "long_desc": "Discover the perfect blend of ruggedness and refinement in our timeless staple. With a rugged appeal and refined craftsmanship, it exudes cool confidence, making it an essential addition to your wardrobe.",
         "image": "4.png",
         "category": "Jackets",
         "color": "Brown",
         "rating": 5,
-        "price": 28.90,
+        "price": 28.9,
         "stock": 20,
         "reviews": 30
     },
     {
         "title": "Yellow Shirt",
-        "description": "Vibrant hue, adds sunshine to any outfit, cheerful flair.",
+        "short_desc": "Vibrant hue, adds sunshine to any outfit, cheerful flair.",
+        "long_desc": "Infuse sunshine into your wardrobe with our vibrant-hued essential. Adding a cheerful flair to any outfit, its lively color palette promises to uplift your style and brighten your day with every wear.",
         "image": "5.png",
         "category": "Shirts",
         "color": "Yellow",
@@ -56,7 +61,8 @@
     },
     {
         "title": "Stripped Pants",
-        "description": "Edgy twist on classic denim, stand out with style.",
+        "short_desc": "Edgy twist on classic denim, stand out with style.",
+        "long_desc": "Unleash your bold side with our edgy twist on classic denim. Stand out from the crowd with unparalleled style, as this modern reinterpretation injects a fresh vibe into timeless fashion staples.",
         "image": "6.png",
         "category": "Pants",
         "color": "Black",
@@ -67,7 +73,8 @@
     },
     {
         "title": "Brown Sandals",
-        "description": "Comfy, versatile, perfect for sunny adventures, laid-back elegance.",
+        "short_desc": "Comfy, versatile, perfect for sunny adventures, laid-back elegance.",
+        "long_desc": "Experience laid-back elegance on your sunny adventures with our comfy and versatile essential. Designed for both style and comfort, it's the perfect companion for leisurely days, offering effortless charm wherever your adventures take you.",
         "image": "7.png",
         "category": "Sandals",
         "color": "Brown",
@@ -78,7 +85,8 @@
     },
     {
         "title": "Brown Slippers",
-        "description": "Cozy comfort, plush warmth for relaxing moments at home.",
+        "short_desc": "Cozy comfort, plush warmth for relaxing moments at home.",
+        "long_desc": "Indulge in plush warmth and cozy comfort during your relaxing moments at home. Our product promises to wrap you in a cocoon of relaxation, ensuring each moment is filled with unparalleled tranquility and ease.",
         "image": "8.png",
         "category": "Slippers",
         "color": "Brown",
@@ -89,7 +97,8 @@
     },
     {
         "title": "Nike Kicks",
-        "description": "Iconic design, ultimate performance, step up your game.",
+        "short_desc": "Iconic design, ultimate performance, step up your game.",
+        "long_desc": "Elevate your performance with our iconic design, engineered for ultimate functionality. Step up your game and conquer new heights with this innovative product that seamlessly merges style with unparalleled performance.",
         "image": "9.png",
         "category": "Shoes",
         "color": "Green",
@@ -100,7 +109,8 @@
     },
     {
         "title": "White Round Neck",
-        "description": "Timeless simplicity, essential staple for effortless style.",
+        "short_desc": "Timeless simplicity, essential staple for effortless style.",
+        "long_desc": "Embrace timeless simplicity with our essential staple, perfect for effortless style. Elevate your look with understated elegance, as this versatile piece seamlessly complements any outfit for a classic, yet contemporary vibe.",
         "image": "10.png",
         "category": "Shirts",
         "color": "White",
@@ -111,7 +121,8 @@
     },
     {
         "title": "White Shirt",
-        "description": "Crisp, versatile, classic staple for every wardrobe essential.",
+        "short_desc": "Crisp, versatile, classic staple for every wardrobe essential.",
+        "long_desc": "Elevate your wardrobe with our crisp white shirt, a versatile and classic staple essential for every occasion. Its timeless appeal ensures effortless sophistication and endless styling possibilities for any ensemble.",
         "image": "11.png",
         "category": "Shirts",
         "color": "White",
@@ -122,7 +133,8 @@
     },
     {
         "title": "Blue Jeans",
-        "description": "Slick jeans, the epitome of casual chic style.",
+        "short_desc": "Slick jeans, the epitome of casual chic style.",
+        "long_desc": "Discover the epitome of casual chic style with our slick jeans. Crafted for both comfort and trendiness, these jeans effortlessly elevate your look, ensuring you stand out with undeniable flair wherever you go.",
         "image": "12.png",
         "category": "Jeans",
         "color": "Blue",
@@ -133,7 +145,8 @@
     },
     {
         "title": "Black Leather Jacket",
-        "description": "Sleek, rebellious, timeless cool, a wardrobe essential.",
+        "short_desc": "Sleek, rebellious, timeless cool, a wardrobe essential.",
+        "long_desc": "Introducing our sleek leather jacket, the epitome of rebellious style and timeless cool. A must-have wardrobe essential, it adds a bold edge to any look, ensuring you exude confidence and charisma wherever you go.",
         "image": "13.png",
         "category": "Jackets",
         "color": "Black",
