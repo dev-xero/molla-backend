@@ -21,7 +21,7 @@ const corsOptions: CorsOptions = {
         'http://localhost:3456',
         'http://localhost:5173',
         'http://localhost:3000',
-        'https://molla-frontend.vercel.app/',
+        'https://molla-frontend.vercel.app',
     ],
     credentials: true,
     optionsSuccessStatus: 200,
