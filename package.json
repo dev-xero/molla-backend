@@ -9,7 +9,7 @@
     "private": false,
     "scripts": {
         "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
-        "build": "yarn tsc",
+        "build": "npx tsc",
         "build:run": "yarn tsc && node --experimental-loader tsc-module-loader build/index.js",
         "dev": "nodemon",
         "prod": "node --experimental-loader tsc-module-loader build/index.js"
