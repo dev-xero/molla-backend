@@ -9,7 +9,7 @@
     "private": false,
     "scripts": {
         "lint": "npx eslint \"./**/*.js\" --cache --cache-strategy content --fix",
-        "build": "npx tsc",
+        "build": "yarn tsc",
         "build:run": "yarn tsc && node --experimental-loader tsc-module-loader build/index.js",
         "dev": "nodemon",
         "prod": "node --experimental-loader tsc-module-loader build/index.js"
@@ -30,7 +30,6 @@
     "devDependencies": {
         "@types/colors": "^1.2.1",
         "@types/cors": "^2.8.17",
-        "@types/dotenv": "^8.2.0",
         "@types/express": "^4.17.21",
         "@types/node": "^20.11.30",
         "@typescript-eslint/eslint-plugin": "^7.3.1",
