@@ -1,3 +1,4 @@
+import { genSaltSync, hashSync } from 'bcrypt-ts'
 import userModel, { UserInterface } from '@model/user'
 import { LogLevel, logMessage } from '@util/logger'
 import { sendJsonResponse } from '@util/response'
@@ -33,11 +34,16 @@ export async function signUp(req: Request, res: Response) {
         }
 
         // Prevent duplicate accounts from being created
-        const userExists = await userModel.findOne({ email: userReqBody.email })
+        const userExists = await userModel.findOne({
+            $or: [
+                { username: userReqBody.username },
+                { email: userReqBody.email },
+            ],
+        })
         if (userExists) {
             sendJsonResponse(
                 {
-                    message: 'A user with that email already exists.',
+                    message: 'A user with those credentials already exists.',
                     code: 400,
                     payload: null,
                 },
@@ -45,8 +51,19 @@ export async function signUp(req: Request, res: Response) {
             )
             return
         } else {
+            const hashedPassword = hashSync(
+                userReqBody.password,
+                genSaltSync(10),
+            )
+            const dbUser: UserInterface = {
+                username: userReqBody.username,
+                password: hashedPassword,
+                email: userReqBody.email,
+                isAdmin: userReqBody.isAdmin,
+            }
+
             // Create the new user collection
-            await userModel.create(userReqBody).then((user) => {
+            await userModel.create(dbUser).then((user) => {
                 logMessage(LogLevel.SUCCESS, 'successfully created new user.')
                 logMessage(LogLevel.INFO, user)
                 sendJsonResponse(
