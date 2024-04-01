@@ -69,32 +69,42 @@ export async function signUp(req: Request, res: Response) {
                 const signature = env.jwt_signature
                 if (signature == '') {
                     // Configuration error
-                    throw new Error('jwt signature missing')
-                }
-                jwt.sign(
-                    { id: user.id },
-                    signature,
-                    (_: unknown, token: any) => {
-                        logMessage(
-                            LogLevel.SUCCESS,
-                            'successfully created new user.',
-                        )
-                        logMessage(LogLevel.INFO, user)
-
+                    userModel.findByIdAndDelete(user._id).then(() => {
                         sendJsonResponse(
                             {
-                                message: 'Successfully created new user.',
-                                code: 201,
-                                payload: {
-                                    user,
-                                    token,
-                                },
+                                message: 'Internal server error, missing server configuration.',
+                                code: 500,
+                                payload: null,
                             },
                             res,
                         )
-                        return
-                    },
-                )
+                    })
+                } else {
+                    jwt.sign(
+                        { id: user.id },
+                        signature,
+                        (_: unknown, token: any) => {
+                            logMessage(
+                                LogLevel.SUCCESS,
+                                'successfully created new user.',
+                            )
+                            logMessage(LogLevel.INFO, user)
+
+                            sendJsonResponse(
+                                {
+                                    message: 'Successfully created new user.',
+                                    code: 201,
+                                    payload: {
+                                        user,
+                                        token,
+                                    },
+                                },
+                                res,
+                            )
+                            return
+                        },
+                    )
+                }
             })
         }
     } catch (error) {
