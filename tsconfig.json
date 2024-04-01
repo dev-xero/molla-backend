@@ -23,5 +23,5 @@
         },
         "strict": true
     },
-    "exclude": ["README.md"]
+    "exclude": ["README.md", "node_modules"]
 }
