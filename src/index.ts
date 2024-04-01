@@ -8,8 +8,9 @@ import productModel from '@model/product'
 import { LogLevel, logMessage } from '@util/logger'
 import { syncWithURI } from '@database/connection'
 import { seedDatabase } from '@database/seeder'
-import { productRouter } from 'route/products.route'
 import { sendJsonResponse } from '@util/response'
+import { productRouter } from '@route/products.route'
+import { authRouter } from '@route/auth.route'
 
 const port = env.port
 const environment = env.environment
@@ -36,6 +37,7 @@ application.use(cors(corsOptions))
 application.use(helmet())
 
 // Register routers
+application.use("/auth", authRouter)
 application.use('/products', productRouter)
 
 application.get('/', (_, res) => {

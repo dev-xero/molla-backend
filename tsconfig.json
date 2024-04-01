@@ -17,7 +17,8 @@
             "@data/*": ["data/*"],
             "@model/*": ["model/*"],
             "@secret/*": ["secret/*"],
-            "@util/*": ["util/*"]
+            "@util/*": ["util/*"],
+            "@route/*": ["route/*"]
         },
         "strict": true
     },
