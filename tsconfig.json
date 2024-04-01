@@ -21,7 +21,8 @@
             "@route/*": ["route/*"],
             "@validator/*": ["validator/*"]
         },
-        "strict": true
+        "strict": true,
+        "types": ["node"]
     },
     "exclude": ["README.md", "node_modules"]
 }
