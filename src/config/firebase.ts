@@ -21,7 +21,7 @@ export async function getBucketFileURL(path: string): Promise<string> {
             expires: expiryDate,
         })
         .then((url: any) => {
-            logMessage(LogLevel.SUCCESS, `url - ${url}`)
+            // logMessage(LogLevel.SUCCESS, `url - ${url}`)
             return url[0]
         })
         .catch((error: Error) => {
