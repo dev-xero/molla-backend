@@ -23,7 +23,8 @@
         "helmet": "^7.1.0",
         "module-alias": "^2.2.3",
         "mongodb": "^6.5.0",
-        "mongoose": "^8.2.3"
+        "mongoose": "^8.2.3",
+        "zod": "^3.22.4"
     },
     "devDependencies": {
         "@types/colors": "^1.2.1",

@@ -18,7 +18,8 @@
             "@model/*": ["model/*"],
             "@secret/*": ["secret/*"],
             "@util/*": ["util/*"],
-            "@route/*": ["route/*"]
+            "@route/*": ["route/*"],
+            "@validator/*": ["validator/*"]
         },
         "strict": true
     },
