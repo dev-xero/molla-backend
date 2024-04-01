@@ -10,9 +10,9 @@ export interface UserInterface {
 
 const userSchema = new Schema({
     id: ObjectId,
-    username: String,
-    password: String,
-    email: String,
+    username: { type: String, unique: true, required: true },
+    password: { type: String, required: true },
+    email: { type: String, required: true },
     isAdmin: Boolean,
 })
 
