@@ -1,9 +1,11 @@
+import jwt from 'jsonwebtoken'
 import { genSaltSync, hashSync } from 'bcrypt-ts'
 import userModel, { UserInterface } from '@model/user'
 import { LogLevel, logMessage } from '@util/logger'
 import { sendJsonResponse } from '@util/response'
 import { Request, Response } from 'express'
 import { userZodSchema } from 'validator/user.validator'
+import env from '@config/env'
 
 /*
 *   signUp() handles signing-up users, it accepts three parameters from the
@@ -62,19 +64,37 @@ export async function signUp(req: Request, res: Response) {
                 isAdmin: userReqBody.isAdmin,
             }
 
-            // Create the new user collection
+            // Create the new user collection and sign the jwt
             await userModel.create(dbUser).then((user) => {
-                logMessage(LogLevel.SUCCESS, 'successfully created new user.')
-                logMessage(LogLevel.INFO, user)
-                sendJsonResponse(
-                    {
-                        message: 'Successfully created new user.',
-                        code: 200,
-                        payload: user,
+                const signature = env.jwt_signature
+                if (signature == '') {
+                    // Configuration error
+                    throw new Error('jwt signature missing')
+                }
+                jwt.sign(
+                    { id: user.id },
+                    signature,
+                    (_: unknown, token: any) => {
+                        logMessage(
+                            LogLevel.SUCCESS,
+                            'successfully created new user.',
+                        )
+                        logMessage(LogLevel.INFO, user)
+
+                        sendJsonResponse(
+                            {
+                                message: 'Successfully created new user.',
+                                code: 201,
+                                payload: {
+                                    user,
+                                    token,
+                                },
+                            },
+                            res,
+                        )
+                        return
                     },
-                    res,
                 )
-                return
             })
         }
     } catch (error) {

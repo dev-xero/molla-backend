@@ -7,7 +7,8 @@ const env = {
     environment: process.env.ENVIRONMENT || 'development',
     mongodb_uri: process.env.MONGODB_URI || '',
     google_bucket_url: process.env.GBUCKET_URL || '',
-    key_path: process.env.KEY_PAH || 'key.json'
+    key_path: process.env.KEY_PAH || 'key.json',
+    jwt_signature: process.env.JWT_SIGNATURE || ''
 }
 
 export default env
