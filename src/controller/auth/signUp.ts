@@ -10,7 +10,7 @@ import { userZodSchema } from 'validator/user.validator'
 *       3. email
 *   It verifies the data then creates a new document containing the user data, then responds 
 *   with a JWT token and the user object.
- */
+*/
 export function signUp(req: Request, res: Response) {
     const userReqBody = req.body
     const isReqBodyValid = userZodSchema.safeParse(userReqBody)
@@ -20,7 +20,7 @@ export function signUp(req: Request, res: Response) {
         console.log(isReqBodyValid.error)
         sendJsonResponse(
             {
-                message: 'Incomplete sign-up parameters sent.',
+                message: 'Invalid sign-up parameters sent.',
                 code: 401,
                 payload: null,
             },
@@ -28,6 +28,8 @@ export function signUp(req: Request, res: Response) {
         )
         return
     }
+
+    // Perform
 
     sendJsonResponse(
         {
