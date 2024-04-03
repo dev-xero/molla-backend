@@ -1,7 +1,7 @@
-import { signUp } from './auth/signUp'
-import { getAllProducts } from './products/getAllProducts'
-import { getProductByID } from './products/getProductByID'
-import { uploadProduct } from './products/uploadProduct'
+import { signUp } from './auth/signup'
+import { getAllProducts } from './products/getallproducts'
+import { getProductByID } from './products/getproductbyid'
+import { uploadProduct } from './products/uploadproducts'
 
 export const products = {
     all: getAllProducts,

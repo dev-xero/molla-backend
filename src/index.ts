@@ -1,16 +1,16 @@
+import { authRouter } from '@route/auth.route'
+import cors, { CorsOptions } from 'cors'
+import env from '@config/env'
 import express from 'express'
 import helmet from 'helmet'
-import cors, { CorsOptions } from 'cors'
-import { exit } from 'process'
-
-import env from '@config/env'
-import productModel from '@model/product'
+import morgan from 'morgan'
 import { LogLevel, log } from '@util/logger'
-import { syncWithURI } from '@database/connection'
+import { exit } from 'process'
+import productModel from '@model/product'
+import { productRouter } from '@route/products.route'
 import { seedDatabase } from '@database/seeder'
 import { sendJsonResponse } from '@util/response'
-import { productRouter } from '@route/products.route'
-import { authRouter } from '@route/auth.route'
+import { syncWithURI } from '@database/connection'
 
 const port = env.port
 const environment = env.environment
@@ -35,6 +35,9 @@ application.use(express.urlencoded({ extended: true }))
 // Enable cors, set secure headers
 application.use(cors(corsOptions))
 application.use(helmet())
+
+// Use request logger
+application.use(morgan('tiny'))
 
 // Register routers
 application.use('/auth', authRouter)
