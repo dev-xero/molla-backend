@@ -22,7 +22,8 @@
             "@validator/*": ["validator/*"]
         },
         "strict": true,
-        "types": ["node"]
+        "types": ["node"],
+        "noImplicitAny": false
     },
     "exclude": ["README.md", "node_modules"]
 }
