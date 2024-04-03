@@ -4,7 +4,7 @@ import userModel, { UserInterface } from '@model/user'
 import { LogLevel, log } from '@util/logger'
 import { sendJsonResponse } from '@util/response'
 import { Request, Response } from 'express'
-import { userZodSchema } from 'validator/user.validator'
+import { userSignUpZodSchema } from 'validator/user.validator'
 import env from '@config/env'
 
 /*
@@ -19,7 +19,7 @@ import env from '@config/env'
 export async function signUp(req: Request, res: Response) {
     try {
         const userReqBody: UserInterface = req.body
-        const isReqBodyValid = userZodSchema.safeParse(userReqBody)
+        const isReqBodyValid = userSignUpZodSchema.safeParse(userReqBody)
 
         // Make sure the client sends the required sign-up data
         if (!isReqBodyValid.success) {

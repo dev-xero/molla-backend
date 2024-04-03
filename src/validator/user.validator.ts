@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const userZodSchema = z.object({
+export const userSignUpZodSchema = z.object({
     username: z
         .string()
         .min(4, { message: 'Username must be at least 4 characters long.' })
