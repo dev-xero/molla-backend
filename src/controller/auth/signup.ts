@@ -1,11 +1,11 @@
 import jwt from 'jsonwebtoken'
+import env from '@config/env'
 import { genSaltSync, hashSync } from 'bcrypt-ts'
 import userModel, { UserInterface } from '@model/user'
 import { LogLevel, log } from '@util/logger'
 import { sendJsonResponse } from '@util/response'
 import { Request, Response } from 'express'
 import { userSignUpZodSchema } from 'validator/user.validator'
-import env from '@config/env'
 
 /*
 *   signUp() handles signing-up users, it accepts three parameters from the
@@ -82,7 +82,7 @@ export async function signUp(req: Request, res: Response) {
                 })
             } else {
                 // User passed all checks, successfully created
-                const cb = (_: unknown, token: any) => {
+                const cb = (_: unknown, token: unknown) => {
                     log(LogLevel.SUCCESS, 'successfully created new user.')
                     log(LogLevel.INFO, user)
 
