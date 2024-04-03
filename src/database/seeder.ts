@@ -1,7 +1,7 @@
 import productModel from '@model/product'
 import seedJSON from '@data/seed.json' assert { type: 'json' }
 import { getBucketFileURL } from '@config/firebase'
-import { LogLevel, logMessage } from '@util/logger'
+import { LogLevel, log } from '@util/logger'
 
 type CallbackFunction<T> = (error: any | null, data: T | null) => void
 
@@ -18,7 +18,7 @@ export async function seedDatabase(
                 return product
             }),
         )
-        logMessage(LogLevel.INFO, 'successfully mapped image urls.')
+        log(LogLevel.INFO, 'successfully mapped image urls.')
         // Delete any previous data and then insert
         model.deleteMany({}).then(() => {
             model
@@ -27,7 +27,7 @@ export async function seedDatabase(
                 .catch((error) => callback(error, false))
         })
     } catch (error: any) {
-        logMessage(LogLevel.ERROR, error.message)
+        log(LogLevel.ERROR, error.message)
         callback(error, false)
     }
 }

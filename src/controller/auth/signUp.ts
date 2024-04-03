@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { genSaltSync, hashSync } from 'bcrypt-ts'
 import userModel, { UserInterface } from '@model/user'
-import { LogLevel, logMessage } from '@util/logger'
+import { LogLevel, log } from '@util/logger'
 import { sendJsonResponse } from '@util/response'
 import { Request, Response } from 'express'
 import { userZodSchema } from 'validator/user.validator'
@@ -24,7 +24,7 @@ export async function signUp(req: Request, res: Response) {
         // Make sure the client sends the required sign-up data
         if (!isReqBodyValid.success) {
             const errMessage = isReqBodyValid.error.issues[0].message
-            logMessage(LogLevel.ERROR, errMessage)
+            log(LogLevel.ERROR, errMessage)
             sendJsonResponse(
                 {
                     message: errMessage,
@@ -83,11 +83,8 @@ export async function signUp(req: Request, res: Response) {
             } else {
                 // User passed all checks, successfully created
                 const cb = (_: unknown, token: any) => {
-                    logMessage(
-                        LogLevel.SUCCESS,
-                        'successfully created new user.',
-                    )
-                    logMessage(LogLevel.INFO, user)
+                    log(LogLevel.SUCCESS, 'successfully created new user.')
+                    log(LogLevel.INFO, user)
 
                     sendJsonResponse(
                         {
@@ -106,8 +103,8 @@ export async function signUp(req: Request, res: Response) {
             }
         })
     } catch (error) {
-        logMessage(LogLevel.ERROR, 'failed to sign-up user.')
-        logMessage(LogLevel.ERROR, error)
+        log(LogLevel.ERROR, 'failed to sign-up user.')
+        log(LogLevel.ERROR, error)
         sendJsonResponse(
             {
                 message: 'Internal server error, failed to sign-up user.',

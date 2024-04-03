@@ -1,8 +1,8 @@
-import { LogLevel, logMessage } from '@util/logger'
+import { LogLevel, log } from '@util/logger'
 import mongoose from 'mongoose'
 
 export async function syncWithURI(uri: string) {
-    logMessage(LogLevel.INFO, 'connecting to the remote database...')
+    log(LogLevel.INFO, 'connecting to the remote database...')
     try {
         const conn = await mongoose.connect(uri)
         return conn

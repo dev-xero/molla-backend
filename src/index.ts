@@ -5,7 +5,7 @@ import { exit } from 'process'
 
 import env from '@config/env'
 import productModel from '@model/product'
-import { LogLevel, logMessage } from '@util/logger'
+import { LogLevel, log } from '@util/logger'
 import { syncWithURI } from '@database/connection'
 import { seedDatabase } from '@database/seeder'
 import { sendJsonResponse } from '@util/response'
@@ -37,7 +37,7 @@ application.use(cors(corsOptions))
 application.use(helmet())
 
 // Register routers
-application.use("/auth", authRouter)
+application.use('/auth', authRouter)
 application.use('/products', productRouter)
 
 application.get('/', (_, res) => {
@@ -67,18 +67,18 @@ application.use((_, res) => {
 // Connect to the database and listen for requests
 syncWithURI(mongoDBUri).then((conn) => {
     if (!conn) {
-        logMessage(LogLevel.ERROR, 'failed to establish a database connection.')
+        log(LogLevel.ERROR, 'failed to establish a database connection.')
         exit(1)
     }
 
-    logMessage(LogLevel.INFO, 'successfully established a database connection.')
+    log(LogLevel.INFO, 'successfully established a database connection.')
 
     seedDatabase(productModel, (err, success) => {
         if (err || !success) {
-            logMessage(LogLevel.ERROR, 'could not seed database.')
+            log(LogLevel.ERROR, 'could not seed database.')
             exit(1)
         }
-        logMessage(LogLevel.SUCCESS, 'successfully seeded the database.')
+        log(LogLevel.SUCCESS, 'successfully seeded the database.')
     })
 
     application.listen(port, () => {
@@ -87,7 +87,7 @@ syncWithURI(mongoDBUri).then((conn) => {
                 ? `${process.env.ADDRESS}:${port}`
                 : `${process.env.ADDRESS}`
 
-        logMessage(LogLevel.INFO, `application listening on port:${port}`)
-        logMessage(LogLevel.INFO, `api live at - ${address}`)
+        log(LogLevel.INFO, `application listening on port:${port}`)
+        log(LogLevel.INFO, `api live at - ${address}`)
     })
 })

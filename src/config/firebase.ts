@@ -1,6 +1,6 @@
 import admin from 'firebase-admin'
 import env from './env'
-import { LogLevel, logMessage } from '@util/logger'
+import { LogLevel, log } from '@util/logger'
 
 admin.initializeApp({
     credential: admin.credential.cert(env.key_path),
@@ -25,8 +25,8 @@ export async function getBucketFileURL(path: string): Promise<string> {
             return url[0]
         })
         .catch((error: Error) => {
-            logMessage(LogLevel.ERROR, 'Failed to get download URL.')
-            logMessage(LogLevel.ERROR, error.message)
+            log(LogLevel.ERROR, 'Failed to get download URL.')
+            log(LogLevel.ERROR, error.message)
             throw error
         })
 }
