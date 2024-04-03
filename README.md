@@ -38,7 +38,7 @@ To quickly bootstrap the project on your machine, follow these commands.
 
  3. Run the development server:
 
-    Running `yarn dev` watches the typescript files for changes and restarts the server automatically, to instead run the compilled Javascript code, use `yarn build:wrun`.
+    Running `yarn dev` watches the typescript files for changes and restarts the server automatically, to instead run the compiled JavaScript code, use `yarn build:run`.
 
     ```bash
     yarn dev
