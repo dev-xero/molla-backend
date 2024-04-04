@@ -54,7 +54,7 @@ export async function signIn(req: Request, res: Response) {
         if (!passwordMatches) {
             sendJsonResponse(
                 {
-                    message: 'Passwords mismatch..',
+                    message: 'Passwords mismatch.',
                     code: 401,
                     payload: null,
                 },
