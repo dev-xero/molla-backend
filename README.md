@@ -15,9 +15,11 @@ Application stack and technologies overview.
 
 The set of defined endpoints the API listens for.
 
-1. GET `/`
-2. GET `/products`
-3. GET `/product/single?id=someID`
+1. GET  `/`
+2. GET  `/products`
+3. GET  `/product/single?id=someID`
+4. POST `/auth/sign-in`
+5. POST `/auth/sign-up`
 
 ## Setup
 
