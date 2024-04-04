@@ -21,6 +21,8 @@ The set of defined endpoints the API listens for.
 4. POST `/auth/sign-in`
 5. POST `/auth/sign-up`
 
+Endpoints documentation are found [here]('./docs/endpoints.md')
+
 ## Setup
 
 To quickly bootstrap the project on your machine, follow these commands.
