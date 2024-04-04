@@ -66,17 +66,15 @@ export async function signIn(req: Request, res: Response) {
             // signature needs to be loaded into env variables
             if (signature == '') {
                 // Configuration error
-                userModel.findByIdAndDelete(user._id).then(() => {
-                    sendJsonResponse(
-                        {
-                            message:
-                                'Internal server error, missing server configuration.',
-                            code: 500,
-                            payload: null,
-                        },
-                        res,
-                    )
-                })
+                sendJsonResponse(
+                    {
+                        message:
+                            'Internal server error, missing server configuration.',
+                        code: 500,
+                        payload: null,
+                    },
+                    res,
+                )
             }
             // User passed all checks, successfully signed-in
             const cb = (_: unknown, token: unknown) => {
