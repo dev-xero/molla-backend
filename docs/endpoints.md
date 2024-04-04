@@ -59,7 +59,7 @@ Retrieves all products from the database, responds with a 200 OK.
     "message": "GET all products.",
     "success": true,
     "code": 200,
-    "payload": [...products]
+    "payload": "productsArray"
 }
 ```
 
@@ -82,7 +82,7 @@ request:
     "message": "GET product by an id.",
     "success": true,
     "code": 200,
-    "payload": {product}
+    "payload": "productObj"
 }
 ```
 
@@ -168,7 +168,7 @@ Signing-in requires the email address and the matching password for the account 
     "success": true,
     "code": 200,
     "payload": {
-        "user": {user},
+        "user": "userObj",
         "token": "jwt-token"
     }
 }
