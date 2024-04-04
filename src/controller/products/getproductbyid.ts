@@ -1,5 +1,4 @@
 import productModel from '@model/product'
-import { LogLevel, log } from '@util/logger'
 import { sendJsonResponse } from '@util/response'
 import { Request, Response } from 'express'
 

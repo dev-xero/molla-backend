@@ -3,6 +3,7 @@ import { Response } from 'express'
 export type responseData = {
     message: string
     code: number
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     payload: any
 }
 

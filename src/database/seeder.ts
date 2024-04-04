@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import productModel from '@model/product'
 import seedJSON from '@data/seed.json' assert { type: 'json' }
 import { getBucketFileURL } from '@config/firebase'
 import { LogLevel, log } from '@util/logger'
 
-type CallbackFunction<T> = (error: any | null, data: T | null) => void
+type CallbackFunction<T> = (error: unknown | null, data: T | null) => void
 
 export async function seedDatabase(
     model: typeof productModel,

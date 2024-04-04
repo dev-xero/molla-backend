@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import productModel from '@model/product'
 import { Request, Response } from 'express'
 import { sendJsonResponse } from '@util/response'
@@ -10,9 +11,9 @@ export async function getAllProducts(_: Request, res: Response) {
             .find({})
             .lean()
             .then((products) => {
-                log(LogLevel.INFO, products)
-                let responsePayload: Array<any> = []
-                products.forEach((product) => responsePayload.push(product))
+                // log(LogLevel.INFO, products) - don't log this
+                const responsePayload: Array<any> = []
+                products.forEach((product: any) => responsePayload.push(product))
                 sendJsonResponse(
                     {
                         message: 'GET all products.',

@@ -20,7 +20,7 @@ export async function getBucketFileURL(path: string): Promise<string> {
             action: 'read',
             expires: expiryDate,
         })
-        .then((url: any) => {
+        .then((url: Array<string>) => {
             // logMessage(LogLevel.SUCCESS, `url - ${url}`)
             return url[0]
         })

@@ -6,6 +6,7 @@ export enum LogLevel {
     ERROR = 'ERR',
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function log(level: LogLevel, msg: any) {
     let coloredTag
     switch (level) {
