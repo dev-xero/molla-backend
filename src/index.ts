@@ -11,6 +11,7 @@ import { productRouter } from '@route/products.route'
 import { seedDatabase } from '@database/seeder'
 import { sendJsonResponse } from '@util/response'
 import { syncWithURI } from '@database/connection'
+import rateLimit from 'express-rate-limit'
 
 const port = env.port
 const environment = env.environment
@@ -27,6 +28,18 @@ const corsOptions: CorsOptions = {
     credentials: true,
     optionsSuccessStatus: 200,
 }
+const limiter = rateLimit({
+    windowMs: 5 * 60 * 1000, // 5 mins
+    limit: 10,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        message: "Rate limit exceeded, try again later.",
+        success: false,
+        code: 429,
+        payload: null
+    }
+})
 
 // Enable JSON middleware and url encoding
 application.use(express.json())
@@ -38,6 +51,9 @@ application.use(helmet())
 
 // Use request logger
 application.use(morgan('tiny'))
+
+// Setup rate limiter
+application.use(limiter)
 
 // Register routers
 application.use('/auth', authRouter)
