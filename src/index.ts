@@ -52,12 +52,9 @@ application.use(helmet())
 // Use request logger
 application.use(morgan('tiny'))
 
-// Setup rate limiter
-application.use(limiter)
-
 // Register routers
-application.use('/auth', authRouter)
-application.use('/products', productRouter)
+application.use('/auth', limiter, authRouter)
+application.use('/products', limiter, productRouter)
 
 application.get('/', (_, res) => {
     sendJsonResponse(
