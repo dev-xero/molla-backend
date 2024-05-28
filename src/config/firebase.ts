@@ -2,8 +2,13 @@ import admin from 'firebase-admin'
 import env from './env'
 import { LogLevel, log } from '@util/logger'
 
+// Setup admin
 admin.initializeApp({
-    credential: admin.credential.cert(env.key_path),
+    credential: admin.credential.cert({
+        privateKey: env.service.private_key,
+        projectId: env.service.project_id,
+        clientEmail: env.service.client_email,
+    }),
     storageBucket: env.google_bucket_url,
 })
 
