@@ -18,6 +18,7 @@ const userSchema = new Schema({
 })
 
 userSchema.methods.toJSON = function () {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     const user = this
     const userObject = user.toObject()
 

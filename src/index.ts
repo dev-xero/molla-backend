@@ -30,8 +30,8 @@ const corsOptions: CorsOptions = {
     optionsSuccessStatus: 200,
 }
 const limiter = rateLimit({
-    windowMs: 5 * 60 * 1000, // 5 mins
-    limit: 10,
+    windowMs: 60 * 1000, // 1 min
+    limit: 100,
     standardHeaders: true,
     legacyHeaders: false,
     message: {
