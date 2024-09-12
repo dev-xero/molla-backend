@@ -12,6 +12,7 @@ import { seedDatabase } from '@database/seeder'
 import { sendJsonResponse } from '@util/response'
 import { syncWithURI } from '@database/connection'
 import rateLimit from 'express-rate-limit'
+import redisClient from '@config/redis'
 
 const port = env.port
 const environment = env.environment
@@ -82,7 +83,7 @@ application.use((_, res) => {
 })
 
 // Connect to the database and listen for requests
-syncWithURI(mongoDBUri).then((conn) => {
+syncWithURI(mongoDBUri).then(async (conn) => {
     if (!conn) {
         log(LogLevel.ERROR, 'failed to establish a database connection.')
         exit(1)
@@ -97,6 +98,10 @@ syncWithURI(mongoDBUri).then((conn) => {
         }
         log(LogLevel.SUCCESS, 'successfully seeded the database.')
     })
+
+    // Connect to redis instance
+    await redisClient.connect();
+    log(LogLevel.SUCCESS, `Redis client connected successfully.`)
 
     application.listen(port, () => {
         const address =

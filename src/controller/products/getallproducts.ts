@@ -3,26 +3,54 @@ import productModel from '@model/product'
 import { Request, Response } from 'express'
 import { sendJsonResponse } from '@util/response'
 import { log, LogLevel } from '@util/logger'
+import redisClient from '@config/redis'
 
 export async function getAllProducts(_: Request, res: Response) {
     // Get all products from the database
     try {
-        await productModel
-            .find({})
-            .lean()
-            .then((products) => {
-                // log(LogLevel.INFO, products) - don't log this
-                const responsePayload: Array<any> = []
-                products.forEach((product: any) => responsePayload.push(product))
-                sendJsonResponse(
-                    {
-                        message: 'GET all products.',
-                        code: 200,
-                        payload: responsePayload,
-                    },
-                    res,
-                )
-            })
+        // Firstly try to fetch from cache.
+        const productsCache = await redisClient.get('products')
+        if (productsCache) {
+            const products = JSON.parse(productsCache);
+            log(LogLevel.INFO, 'Redis cache HIT.')
+            
+            // console.log('HIT', products);
+
+            sendJsonResponse(
+                {
+                    message: 'GET all products.',
+                    code: 200,
+                    payload: products,
+                },
+                res,
+            )
+        } else {
+            log(LogLevel.INFO, 'Redis cache MISS, defaulting to db.')
+            await productModel
+                .find({})
+                .lean()
+                .then(async (products) => {
+                    // log(LogLevel.INFO, products) - don't log this
+                    const responsePayload: Array<any> = []
+                    products.forEach((product) => responsePayload.push(product))
+
+                    // Cache this result
+                    await redisClient.set(
+                        'products',
+                        JSON.stringify(responsePayload),
+                    )
+                    log(LogLevel.INFO, 'Cached products array.')
+
+                    sendJsonResponse(
+                        {
+                            message: 'GET all products.',
+                            code: 200,
+                            payload: responsePayload,
+                        },
+                        res,
+                    )
+                })
+        }
 
         return
     } catch (error) {
