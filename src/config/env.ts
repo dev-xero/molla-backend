@@ -22,6 +22,7 @@ const env = {
     port: process.env.PORT || '8080',
     environment: process.env.ENVIRONMENT || 'development',
     mongodb_uri: process.env.MONGODB_URI || '',
+    redis_url: process.env.REDIS_URL || '',
     google_bucket_url: process.env.GBUCKET_URL || '',
     key_path: process.env.KEY_PAH || 'key.json',
     jwt_signature: process.env.JWT_SIGNATURE || '',
